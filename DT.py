@@ -7,6 +7,7 @@ Created on Thu Feb 16 16:22:57 2017
 import row
 import server
 import pool
+import operator
 
 class DT:
 
@@ -21,6 +22,7 @@ class DT:
         #U = number of disabeled slots
         #P = number of pools
         #M = number of servers
+        self.load() #load the file
 
     def disabledslot (self, row, slot):
         self.rows[row].changeStatus(slot, -2);
@@ -37,7 +39,15 @@ class DT:
         for i in range(self.M): #add servers to tmp list
             s,c = f.readline().split(" ")
             self.tmpServ.append(server.server(int(s),int(c),i))
+        #sort the temp servers so that we can decide how to spead them
+        #order first by size then by capacity
+        self.tmpServ = sorted(self.tmpServ, key=operator.attrgetter('size'))
+        self.tmpServ = sorted(self.tmpServ, key=operator.attrgetter('capacity'))
         f.close()
+
+    def dispTmpSrv(self):
+        for s in self.tmpServ:
+            print("Size: {0} Cap: {1}".format(s.size, s.capacity))
     
     def disp (self):
         print (str(self.R) + " rows")

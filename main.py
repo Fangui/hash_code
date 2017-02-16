@@ -11,5 +11,4 @@ import row
 import server
 
 h = DT.DT('dc.in')
-h.load()
 h.disp()
