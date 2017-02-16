@@ -13,6 +13,7 @@ class DT:
         self.rows = []
         self.pools = []
         self.tmpServ = []
+        self.R,self.S,self.U,self.P,self.M = 0,0,0,0,0
         
     def addrow (self, row):
         self.rows.append(row);
@@ -26,17 +27,18 @@ class DT:
     def load(self,path):
         f = open(path)
         self.R,self.S,self.U,self.P,self.M = f.readline().split(" ")
-        self.rows = [ row(self.S) for i in range(self.R)]
+        self.R,self.S,self.U,self.P,self.M = int(self.R),int(self.S),int(self.U),int(self.P),int(self.M)
+        self.rows = [ row.row(self.S) for i in range(self.R)]
         for i in range(self.U):
             r,s = f.readline().split(" ")
-            self.disabledslot(r,s)
+            self.disabledslot(int(r),int(s))
         for i in range(self.M):
             s,c = f.readline().split(" ")
-            self.tmpServ.append(server(s,c,i))
+            self.tmpServ.append(server.server(int(s),int(c),i))
     
     def disp (self):
-        print (self.R + " rows")
-        print (self.S + " slots")
-        print (self.U + " unavailables slots")
-        print (self.P + " pools")
-        print (self.S + " servers to be allocated")
+        print (str(self.R) + " rows")
+        print (str(self.S) + " slots")
+        print (str(self.U) + " unavailables slots")
+        print (str(self.P) + " pools")
+        print (str(self.S) + " servers to be allocated")
