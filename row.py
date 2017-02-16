@@ -4,32 +4,46 @@ class row:
     self.data = [0] * capacity
     self.servers = []
 
-def Print(self):
-  for i in range(capacity):
-    print(self.data[i])
+  def Print(self):
+    for i in range(self.capacity):
+      print(self.data[i])
 
-def addServer(self,server):
-  self.servers.append(server)
+  def addServer(self,server):
+    self.servers.append(server)
 
-def changeStatus(self, index, server):
-  self.data[index] = server
+  def changeStatus(self, index, server):
+    self.data[index] = server
 
-def listEnable(self):
-  cpt = 0
-  add = True
-  arr = []
-  for i in range(capacity):
-    if self.data[i] == 0:
-      cpt += 1
-    elif self.data[i] == -2:
-      if add and cpt > 0:
-        arr.append( (cpt,i) )
-        add = False
-        cpt = 0
-    elif self.data[i] == -1:
-      add = True
-    else:
-      print("WTF VALUE")
+  def listEnable(self):
+    cpt = 0
+    add = True
+    arr = []
+    for i in range(self.capacity):
+      if self.data[i] == 0:
+        cpt += 1
+        if i == self.capacity - 1:
+          arr.append( (cpt, i) )
+      elif self.data[i] == -2:
+        add = True
+        if add and cpt > 0:
+          arr.append( (cpt,i) )
+          add = False
+          cpt = 0
+      elif self.data[i] == -1:
+        add = True
+      else:
+        print("WTF VALUE")
 
-  return arr
+    return arr
 
+"""
+l = row(10)
+
+l.changeStatus(4, -2)
+l.changeStatus(8, -2) 
+
+l.Print()
+
+print(l.listEnable())
+
+"""
