@@ -6,10 +6,9 @@ Created on Thu Feb 16 15:19:55 2017
 """
 
 import os
-import DT
-import pool
-import row
-import server
+from DT import *
+from pool import *
+from row import *
+from server import *
 
-datacenter = DT("dc.in")
-datacenter.disp()
+h = DT("dc.in")

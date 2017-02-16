@@ -9,12 +9,10 @@ import server
 
 class DT:
 
-    def _init_(self, path):
+    def __init__(self, _path):
         self.rows = []
         self.pools = []
         self.tmpServ = []
-        self.R,self.S,self.U,self.P,self.M = None
-        self.load(path);
         
     def addrow (self, row):
         self.rows.append(row);
