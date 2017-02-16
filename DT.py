@@ -9,8 +9,9 @@ import row
 class DT:
 
     def _init_(self, path):
-        self.rows = None
-        self.pools = None
+        self.rows = []
+        self.pools = []
+        self.tmpServ = []
         self.R,self.S,self.U,self.P,self.M = None
         self.load();
         
@@ -24,5 +25,4 @@ class DT:
         f = open(path)
         self.R,self.S,self.U,self.P,self.M = f.readline().split(" ")
         self.rows = [ row(self.S) for i in range(self.R)]
-                
-                
+        
