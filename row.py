@@ -21,7 +21,10 @@ class row:
     for i in range(self.capacity):
       if self.data[i] == 0:
         cpt += 1
+        if i == self.capacity - 1:
+          arr.append( (cpt, i) )
       elif self.data[i] == -2:
+        add = True
         if add and cpt > 0:
           arr.append( (cpt,i) )
           add = False
@@ -32,3 +35,15 @@ class row:
         print("WTF VALUE")
 
     return arr
+
+"""
+l = row(10)
+
+l.changeStatus(4, -2)
+l.changeStatus(8, -2) 
+
+l.Print()
+
+print(l.listEnable())
+
+"""
