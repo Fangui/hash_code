@@ -10,3 +10,6 @@ import DT
 import pool
 import row
 import server
+
+datacenter = DT("dc.in")
+datacenter.disp()

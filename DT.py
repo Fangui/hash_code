@@ -14,7 +14,7 @@ class DT:
         self.pools = []
         self.tmpServ = []
         self.R,self.S,self.U,self.P,self.M = None
-        self.load();
+        self.load(path);
         
     def addrow (self, row):
         self.rows.append(row);
