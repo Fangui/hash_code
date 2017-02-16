@@ -7,10 +7,12 @@ Created on Thu Feb 16 16:22:57 2017
 
 class DT:
 
-    def _init_(self, rows, pools):
-        self.rows = rows;
-        self.pools = pools;
-        self.R,self.S,self.U,self.P,self.M = None;
+    def _init_(self, path):
+        self.rows = None
+        self.pools = None
+        self.R,self.S,self.U,self.P,self.M = None
+        self.load();
+        
     def addrow (self, row):
         self.rows.append(row);
 
@@ -20,3 +22,4 @@ class DT:
     def load(self,path):
         f = open(path)
         self.R,self.S,self.U,self.P,self.M = f.readline().split(" ")
+        
