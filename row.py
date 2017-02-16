@@ -25,6 +25,7 @@ def listEnable(self):
       if add:
         arr.append( (cpt,i) )
         add = False
+        cpt = 0
     elif self.data[i] == -1:
       add = True
     else:
