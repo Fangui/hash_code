@@ -24,7 +24,7 @@ class Pool:
         self.max_capacity -= server.capacity
 
     def disp(self):
-        print("Pool " + int(self.name) + ", Capacity = " + int(self.max_capacity))
+        print("Pool " + int(self.name) + ", Capacity = " + int(self.get_capacity))
         for server in self.servers:
             print(server.name)
     
