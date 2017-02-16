@@ -35,3 +35,10 @@ class DT:
         for i in range(self.M):
             s,c = f.readline().split(" ")
             self.tmpServ.append(server(s,c,i))
+    
+    def disp (self):
+        print (self.R + " rows")
+        print (self.S + " slots")
+        print (self.U + " unavailables slots")
+        print (self.P + " pools")
+        print (self.S + " servers to be allocated")
