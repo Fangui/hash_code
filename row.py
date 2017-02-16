@@ -14,16 +14,21 @@ def addServer(self,server):
 def changeStatus(self, index, server):
   self.data[index] = server
 
-def nbUnable(self):
-  (cpt, nb) = (0, 0)
-  index = 0
-
+def listEnable(self):
+  cpt = 0
+  add = True
+  arr = []
   for i in range(capacity):
     if self.data[i] == 0:
       cpt += 1
+    elif self.data[i] == -2:
+      if add:
+        arr.append( (cpt,i) )
+        add = False
+    elif self.data[i] == -1:
+      add = True
     else:
-      if cpt > nb:
-        index = i
-        nb = cpt
-  return (nb, index)
+      print("WTF VALUE")
+
+  return arr
 
