@@ -5,11 +5,11 @@ Created on Thu Feb 16 15:19:55 2017
 @author: Thomas
 """
 
-import os
 import DT
 import pool
 import row
 import server
 
-datacenter = DT("dc.in")
-datacenter.disp()
+h = DT.DT()
+h.load('dc.in')
+h.disp()
