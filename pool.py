@@ -22,3 +22,14 @@ class Pool:
     def remove_server(self, server):
         self.servers.remove(server)
         self.max_capacity -= server.capacity
+
+    def disp(self):
+        print("Pool " + int(self.name) + ", Capacity = " + int(self.max_capacity))
+        for server in self.servers:
+            print(server.name)
+    
+    def get_size(self):
+        return len(self.servers)
+        
+    def get_capacity(self):
+        return self.max_capacity
