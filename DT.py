@@ -5,10 +5,9 @@ Created on Thu Feb 16 16:22:57 2017
 @author: prolintos
 """
 import row
-
 class DT:
 
-    def _init_(self, path):
+    def _init_(spullelf, path):
         self.rows = None
         self.pools = None
         self.R,self.S,self.U,self.P,self.M = None
@@ -27,3 +26,4 @@ class DT:
                 
     def disabledslot (self, row, slot):
         self.rows[row].changeStatus(slot, -2);
+        
