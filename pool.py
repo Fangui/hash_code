@@ -5,7 +5,7 @@
 Ceci est un script temporaire.
 """
 
-class Pool:
+class pool:
     """
     servers : liste des serveurs appartenant a cette pool
     capacity : capacite totale des serveurs

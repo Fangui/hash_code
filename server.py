@@ -1,4 +1,4 @@
-class Server:
+class server:
 
     def __init__(self, size, capacity, name, pool=None):
         self.size = size
