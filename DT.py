@@ -25,4 +25,5 @@ class DT:
         self.R,self.S,self.U,self.P,self.M = f.readline().split(" ")
         self.rows = [ row(self.S) for i in range(self.R)]
                 
-                
+    def disabledslot (self, row, slot):
+        self.rows[row].changeStatus(slot, -2);
