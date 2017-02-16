@@ -22,7 +22,7 @@ def listEnable(self):
     if self.data[i] == 0:
       cpt += 1
     elif self.data[i] == -2:
-      if add:
+      if add and cpt > 0:
         arr.append( (cpt,i) )
         add = False
         cpt = 0
