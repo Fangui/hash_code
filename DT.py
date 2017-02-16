@@ -9,7 +9,7 @@ import server
 
 class DT:
 
-    def __init__(self, _path):
+    def __init__(self):
         self.rows = []
         self.pools = []
         self.tmpServ = []
