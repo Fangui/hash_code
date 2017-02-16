@@ -10,11 +10,11 @@ class DT:
      def _init_(self, rows, pools):
          self.rows = rows;
          self.pools = pools;
-    
+         self.R,self.S,self.U,self.P,self.M = None;
      def addrow (self, row):
         self.rows.append(row);
         
      def addpool (self, pool):
         self.pools.append(pool);
-        
+         
     
