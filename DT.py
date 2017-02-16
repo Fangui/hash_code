@@ -4,6 +4,7 @@ Created on Thu Feb 16 16:22:57 2017
 
 @author: prolintos
 """
+import row
 
 class DT:
 
@@ -22,4 +23,6 @@ class DT:
     def load(self,path):
         f = open(path)
         self.R,self.S,self.U,self.P,self.M = f.readline().split(" ")
-        
+        self.rows = [ row(self.S) for i in range(self.R)]
+                
+                
