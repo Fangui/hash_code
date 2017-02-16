@@ -1,15 +1,33 @@
+"""
+class Server:
+  def __init__(self, size, capacity, name, pool=None):
+    self.size = size
+    self.capacity = capacity
+    self.name = name
+    self.pool = pool
+"""
 class row:
   def __init__(self, capacity):
     self.capacity = capacity
     self.data = [0] * capacity
     self.servers = []
 
-  def disp(self):
-    for i in range(self.capacity):
-      print(self.data[i])
+  def dispServer(self):
+    for i in range(len(self.servers)):
+      print(self.servers[i].size)
 
+  def disp(self):
+    print("row->")
+    print(self.data)
+    print("serv")
+    self.dispServer()
+      
   def addServer(self,server):
-    self.servers.append(server)
+    i = 0
+    Len = len(self.servers)
+    while i < Len and server.size < self.servers[i].size:
+      i += 1
+    self.servers.insert(i, server)
 
   def changeStatus(self, index, server):
     self.data[index] = server
@@ -40,20 +58,32 @@ class row:
     Length = len(l)
     LenS = len(self.servers)
     i = 0
+
     while i < LenS:
       B = True
       j = 0
+      ins = False
       while j < Length and B:
         if l[j][0] == self.servers[i].size:
           B = False
-          print(self.servers[i].size)
+          ins = False
           self.servers.pop(i)
           LenS -= 1
+          i -= 1
           for k in range(l[j][1], l[j][0] + l[j][1]):
             self.data[k] = -1
+        elif l[j][0] > self.servers[i].size:
+          ins = True
+          pos = j
         j += 1
+        """
+        if(j == Length and ins):
+          for k in range(l[pos][1], l[pos][0] + l[pos][1]):
+            self.data[k] = -1
+          l[pos][0] -= l[pos][1]
+          l[pos][1] += l[pos][1]
+        """
       i += 1
-
 """
 serv = Server(3, 62, 0, 0)
 serv2 = Server(9, 15, 0, 0)
@@ -74,4 +104,4 @@ print(L)
 l.insertServer(L)
 
 l.disp()
-""
+"""
