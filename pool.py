@@ -15,10 +15,10 @@ class Pool:
         self.servers = servers
         self.max_capacity = capacity
 
-    def add_server(pool, server):
-        pool.servers.append(server)
-        pool.max_capacity += server.capacity
+    def add_server(self, server):
+        self.servers.append(server)
+        self.max_capacity += server.capacity
 
-    def remove_server(pool, server):
-        pool.servers.remove(server)
-        pool.max_capacity -= server.capacity
+    def remove_server(self, server):
+        self.servers.remove(server)
+        self.max_capacity -= server.capacity
