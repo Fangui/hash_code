@@ -41,4 +41,4 @@ class DT:
         print (str(self.S) + " slots")
         print (str(self.U) + " unavailables slots")
         print (str(self.P) + " pools")
-        print (str(self.S) + " servers to be allocated")
+        print (str(self.M) + " servers to be allocated")

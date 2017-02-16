@@ -10,6 +10,6 @@ import pool
 import row
 import server
 
-h = DT.DT("dc.in")
+h = DT.DT()
 h.load('dc.in')
 h.disp()
