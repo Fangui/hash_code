@@ -4,7 +4,7 @@ class row:
     self.data = [0] * capacity
     self.servers = []
 
-  def Print(self):
+  def disp(self):
     for i in range(self.capacity):
       print(self.data[i])
 
@@ -26,7 +26,7 @@ class row:
       elif self.data[i] == -2:
         add = True
         if add and cpt > 0:
-          arr.append( (cpt,i) )
+          arr.append( (cpt,i - cpt) )
           add = False
           cpt = 0
       elif self.data[i] == -1:
@@ -36,14 +36,42 @@ class row:
 
     return arr
 
+  def insertServer(self, l):
+    Length = len(l)
+    LenS = len(self.servers)
+    i = 0
+    while i < LenS:
+      B = True
+      j = 0
+      while j < Length and B:
+        if l[j][0] == self.servers[i].size:
+          B = False
+          print(self.servers[i].size)
+          self.servers.pop(i)
+          LenS -= 1
+          for k in range(l[j][1], l[j][0] + l[j][1]):
+            self.data[k] = -1
+        j += 1
+      i += 1
+
 """
+serv = Server(3, 62, 0, 0)
+serv2 = Server(9, 15, 0, 0)
+serv3 = Server(4, 51, 0, 0)
+
 l = row(10)
 
 l.changeStatus(4, -2)
-l.changeStatus(8, -2) 
+l.changeStatus(8, -2)
 
-l.Print()
+l.addServer(serv)
+l.addServer(serv2)
+l.addServer(serv3)
+l.disp()
+L = l.listEnable()
+print(L)
 
-print(l.listEnable())
+l.insertServer(L)
 
-"""
+l.disp()
+""
