@@ -40,7 +40,7 @@ class row:
       if self.data[i] == 0:
         cpt += 1
         if i == self.capacity - 1:
-          arr.append( (cpt, i) )
+          arr.append( (cpt, i - cpt + 1) )
       elif self.data[i] == -2:
         add = True
         if add and cpt > 0:
@@ -49,6 +49,7 @@ class row:
           cpt = 0
       elif self.data[i] == -1:
         add = True
+        print("This algo shouldn't enter this case")
       else:
         print("WTF VALUE")
 
@@ -66,30 +67,34 @@ class row:
       while j < Length and B:
         if l[j][0] == self.servers[i].size:
           B = False
-          ins = False
           self.servers.pop(i)
           LenS -= 1
           i -= 1
           for k in range(l[j][1], l[j][0] + l[j][1]):
             self.data[k] = -1
         elif l[j][0] > self.servers[i].size:
-          ins = True
           pos = j
+          ins = True
         j += 1
-        """
-        if(j == Length and ins):
-          for k in range(l[pos][1], l[pos][0] + l[pos][1]):
+        
+        if j == Length and ins:
+          for k in range(l[pos][1], l[pos][1] + self.servers[i].size):
             self.data[k] = -1
+          l[pos] = list(l[pos])
           l[pos][0] -= l[pos][1]
           l[pos][1] += l[pos][1]
-        """
+          l[pos] = tuple(l[pos])
+          self.servers.pop(i)
+          LenS -= 1
+          i -= 1
+        
       i += 1
 """
 serv = Server(3, 62, 0, 0)
-serv2 = Server(9, 15, 0, 0)
+serv2 = Server(8, 15, 0, 0)
 serv3 = Server(4, 51, 0, 0)
 
-l = row(10)
+l = row(20)
 
 l.changeStatus(4, -2)
 l.changeStatus(8, -2)
