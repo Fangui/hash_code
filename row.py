@@ -1,11 +1,5 @@
-"""
-class Server:
-  def __init__(self, size, capacity, name, pool=None):
-    self.size = size
-    self.capacity = capacity
-    self.name = name
-    self.pool = pool
-"""
+import server
+
 class row:
   def __init__(self, capacity):
     self.capacity = capacity
@@ -90,9 +84,9 @@ class row:
         
       i += 1
 """
-serv = Server(3, 62, 0, 0)
-serv2 = Server(8, 15, 0, 0)
-serv3 = Server(4, 51, 0, 0)
+serv = server.server(3, 62, 0, 0)
+serv2 = server.server(8, 15, 0, 0)
+serv3 = server.server(4, 51, 0, 0)
 
 l = row(20)
 
