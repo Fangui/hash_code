@@ -5,3 +5,5 @@ class cache:
     self.size = 0
     self.lat = lat
 
+
+  def trieVideo(
