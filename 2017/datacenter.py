@@ -10,17 +10,6 @@ import endPoint
 import cache
 import request
 
-def tricaca(l):
-    L = [[]]*(l[-1].size)
-    for v in l:
-        L[v.size - 1].append(v)
-    for i in range(len(L)):
-        L[i] = sorted(L[i], key = lambda v : v.req)
-    R=[]
-    for vl in L:
-        for v in vl:
-            R.append(v)
-    return R
 
 class datacenter:
     
@@ -58,5 +47,30 @@ class datacenter:
         for r in self.requests:
             self.videos[r.idVid].req += r.nbCall
 
-        self.videos = sorted(self.videos, key = lambda v: v.size/v.req)
-        #self.videos = tricaca(self.videos)
+        self.videos = sorted(self.videos, key = lambda v: v.size/(v.req+1))
+        
+        for e in self.endPoints:
+            e.savingLat()
+            
+        for e in self.endPoints:
+            for c in e.list:
+                while (c[0].capacity >= c[0].size + self.videos[0].size):
+                    c[0].addVideo(self.videos.pop(0))
+        
+        f.close()
+        
+        
+    def out(self,outp):
+        f = open(outp,'w')
+        acc=0
+        for c in self.caches:
+            if(c.size > 0):
+                acc+=1
+        f.write(str(acc)+'\n')
+        for i in range(len(self.caches)):
+            if (self.caches[i].size > 0):
+                f.write(str(i))
+                for v in self.caches[i].list:
+                    f.write(' '+str(v.ident))
+                f.write('\n')
+        f.close()
