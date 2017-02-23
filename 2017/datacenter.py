@@ -18,7 +18,7 @@ class datacenter:
         vi = f.readline().split(' ')
         self.caches = []
         for i in range(self.C):
-            self.caches.append(cache.cache())
+            self.caches.append(cache.cache(self.X))
         self.videos = []
         self.endPoints = []
         for i in range(len(vi)):
@@ -26,6 +26,6 @@ class datacenter:
         for i in range(self.E):
             Ld,K = f.readline().split(' ')
             Ld,K = int(Ld),int(K)
-            e = endPoint.endPoint(Ld,)
+            e = endPoint.endPoint(Ld)
             for j in range(K):
                 c,Lc = f.readline().split(' ')
