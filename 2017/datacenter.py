@@ -6,6 +6,7 @@ Created on Thu Feb 23 17:57:35 2017
 """
 
 import video
+import endPoint
 
 class datacenter:
     
@@ -13,6 +14,14 @@ class datacenter:
         f = open(path)
         self.V, self.E, self.R, self.C, self.X = f.readline().split(' ')
         self.V, self.E, self.R, self.C, self.X = int(self.V), int(self.E), int(self.R), int(self.C), int(self.X)
-        vids = f.readline().split(' ')
-        
-        
+        vi = f.readline().split(' ')
+        self.videos = []
+        self.endPoints
+        for i in range(len(vi)):
+            self.vids.append(video.video(int(vi[i]), i, 0))
+        for i in range(self.E):
+            Ld,K = f.readline().split(' ')
+            Ld,K = int(Ld),int(K)
+            for j in range(K):
+                c,Lc = f.readline().split(' ')
+                
