@@ -49,4 +49,4 @@ class datacenter:
             self.vidreq[r.idVid] = (vi,nb)
             
         self.videos = sorted(self.videos, key=lambda v: v.size)
-        
+        self.videos = sorted(self.videos, key=lambda v: self.vidreq[v.ident][1])
