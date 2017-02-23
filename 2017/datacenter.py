@@ -17,6 +17,7 @@ class datacenter:
         self.V, self.E, self.R, self.C, self.X = f.readline().split(' ')
         self.V, self.E, self.R, self.C, self.X = int(self.V), int(self.E), int(self.R), int(self.C), int(self.X)
         self.videos = []
+        self.vidreq = [(0,0)]*self.V  # (id vid, nbreq)
         self.endPoints = []
         self.requests = []
         
@@ -36,7 +37,16 @@ class datacenter:
             for j in range(K):
                 c,Lc = f.readline().split(' ')
                 e.addCacheLat(self.caches[int(c)],int(Lc))
-                
+            self.endPoints.append(e)                
+            
         for i in range(self.R):
             Rv,Re,Rn = f.readline().split(' ')
             self.requests.append( request.request(int(Rv),int(Re),int(Rn)) )
+            
+        for r in self.requests:
+            vi,nb = self.vidreq[r.idVid]
+            nb += r.nbCall
+            self.vidreq[r.idVid] = (vi,nb)
+            
+        self.videos = sorted(self.videos, key=lambda v: v.size)
+        
