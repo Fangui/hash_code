@@ -10,6 +10,17 @@ import endPoint
 import cache
 import request
 
+def tricaca(l):
+    L = [[]]*(l[-1].size)
+    for v in l:
+        L[v.size - 1].append(v)
+    for i in range(len(L)):
+        L[i] = sorted(L[i], key = lambda v : v.req)
+    R=[]
+    for vl in L:
+        for v in vl:
+            R.append(v)
+    return R
 
 class datacenter:
     
@@ -46,5 +57,6 @@ class datacenter:
             
         for r in self.requests:
             self.videos[r.idVid].req += r.nbCall
-        
-        self.videos = sorted(self.videos, key=lambda v: v.size + v.req/10000)
+
+        self.videos = sorted(self.videos, key = lambda v: v.size/v.req)
+        #self.videos = tricaca(self.videos)
