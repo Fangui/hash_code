@@ -10,6 +10,7 @@ import endPoint
 import cache
 import request
 
+
 class datacenter:
     
     def __init__(self,path):
@@ -37,16 +38,13 @@ class datacenter:
             for j in range(K):
                 c,Lc = f.readline().split(' ')
                 e.addCacheLat(self.caches[int(c)],int(Lc))
-            self.endPoints.append(e)                
+            self.endPoints.append(e)
             
         for i in range(self.R):
             Rv,Re,Rn = f.readline().split(' ')
             self.requests.append( request.request(int(Rv),int(Re),int(Rn)) )
             
         for r in self.requests:
-            vi,nb = self.vidreq[r.idVid]
-            nb += r.nbCall
-            self.vidreq[r.idVid] = (vi,nb)
-            
-        self.videos = sorted(self.videos, key=lambda v: v.size)
-        self.videos = sorted(self.videos, key=lambda v: self.vidreq[v.ident][1])
+            self.videos[r.idVid].req += r.nbCall
+        
+        self.videos = sorted(self.videos, key=lambda v: v.size + v.req/10000)
