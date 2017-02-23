@@ -1,5 +1,5 @@
 class endPoint:
-  def __init__(self, lat1, lat2):
+  def __init__(self, lat1):
     self.lat1 = lat1
     self.list = []
 

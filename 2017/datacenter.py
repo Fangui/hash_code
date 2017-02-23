@@ -26,7 +26,7 @@ class datacenter:
 
         vi = f.readline().split(' ')        
         for i in range(len(vi)):
-            self.vids.append(video.video(int(vi[i]), i, 0))
+            self.videos.append(video.video(int(vi[i]), i, 0))
             
         for i in range(self.E):
             Ld,K = f.readline().split(' ')
