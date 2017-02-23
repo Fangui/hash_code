@@ -1,8 +1,9 @@
 class endPoint:
   def __init__(self, lat1, lat2):
     self.lat1 = lat1
-    self.lat2 = lat2
     self.list = []
 
-  def addCacheLat():
+  def addCacheLat(self, lat, cache):
+     self.list.append((cache,lat))
+
       
