@@ -1,6 +1,5 @@
 class video:
-  def __init__(self, capacity, lisId, req):
+  def __init__(self, capacity, pident, req):
     self.capacity = capacity
-    self.listId = listId
+    self.ident= pident
     self.req = req
-
