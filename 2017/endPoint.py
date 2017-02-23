@@ -6,4 +6,9 @@ class endPoint:
   def addCacheLat(self, lat, cache):
      self.list.append((cache,lat))
 
-      
+  def savingLat(self):
+    savings = [0] * len(self.list)
+    for i in range(len(self.list)):
+      latSaved = self.lat1 - self.list[i][1]
+      savings[i] = (self.list[i][0], latSaved)
+    return savings
