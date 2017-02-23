@@ -29,3 +29,4 @@ class datacenter:
             e = endPoint.endPoint(Ld)
             for j in range(K):
                 c,Lc = f.readline().split(' ')
+                e.addCacheLat(self.caches[int(c)],int(Lc))
