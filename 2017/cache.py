@@ -1,9 +1,7 @@
 class cache:
-  def __init__(self, capa, lat):
+  def __init__(self, capa):
     self.capacity = capa
     self.list = []
     self.size = 0
-    self.lat = lat
 
-
-  def trieVideo(
+  def VideoSort(
