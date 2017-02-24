@@ -55,7 +55,10 @@ class datacenter:
         for e in self.endPoints:
             for c in e.list:
                 while (c[0].capacity >= c[0].size + self.videos[0].size):
-                    c[0].addVideo(self.videos.pop(0))
+                    if (self.videos[0].req != 0):
+                        c[0].addVideo(self.videos.pop(0))
+                    else:
+                        self.videos.pop(0)
         
         f.close()
         
