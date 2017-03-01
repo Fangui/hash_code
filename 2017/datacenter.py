@@ -47,18 +47,29 @@ class datacenter:
         for r in self.requests:
             self.videos[r.idVid].req += r.nbCall
 
-        self.videos = sorted(self.videos, key = lambda v: v.size/(v.req+1))
+        Length = len(self.videos)
+        k = 0
+        while k < Length:
+            if self.videos[k].req == 0:
+                self.videos.pop(k)
+                Length -= 1
+            else:
+                k += 1
+        
+        self.videos = sorted(self.videos, key = lambda v: v.size/v.req)
         
         for e in self.endPoints:
             e.savingLat()
             
         for e in self.endPoints:
             for c in e.list:
-                while (c[0].capacity >= c[0].size + self.videos[0].size):
-                    if (self.videos[0].req != 0):
-                        c[0].addVideo(self.videos.pop(0))
+                k = 0
+                while k < Length: 
+                    if c[0].capacity >= c[0].size + self.videos[k].size:
+                        c[0].addVideo(self.videos.pop(k))
+                        Length -= 1
                     else:
-                        self.videos.pop(0)
+                        k += 1
         
         f.close()
         
