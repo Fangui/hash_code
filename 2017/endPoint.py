@@ -17,10 +17,4 @@ class endPoint:
       savings[i] = (self.list[i][0], latSaved)
 
     self.list = sorted(savings, key = getKey)
-    print(self.list)
-    #return savings
-
-  def disp(List):
-    for i in range(len(List)):
-      print(List[i][1])
 
